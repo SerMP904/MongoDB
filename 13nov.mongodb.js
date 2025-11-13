@@ -90,7 +90,7 @@ db.users.updateMany({
 
 
 use('Usuarios')
- 
+/*
 db.Usuarios.insertMany([
   {
     nombre: "Carlos Pérez",
@@ -282,7 +282,7 @@ db.Usuarios.insertMany([
       { asignatura: "Lengua", puntaje: 84 }
     ]
   }
-])
+])*/
 
 //obtener los usuarios que cumplan:
 // 1. edad <=25
@@ -290,7 +290,7 @@ db.Usuarios.insertMany([
 // 3. intereses "has" deporte
 // 4. CP = 28013
 
-db.Usuarios.find({$and: [{edad: {$lte: 25}}]})
+db.Usuarios.find({$and: [{edad: {$lte: 25}}, {ciudad: "Madrid"}, {intereses: {$all: ["deporte"]}}, {direccion: {codigoPostal: "28013"}}]})
 
 //obtener los usuarios que cumplan una de estas condiciones:
 // 1. edad <= 25
